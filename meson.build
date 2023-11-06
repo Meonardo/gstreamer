@@ -103,7 +103,7 @@ subprojects = [
   ['gst-python', { 'option': get_option('python')}],
   ['gst-examples', { 'option': get_option('gst-examples'), 'match_gst_versions': false}],
   ['gst-plugins-rs', { 'option': get_option('rs'), 'build-hotdoc': true, 'match_gst_version': false}],
-  ['gstreamer-rockchip', { 'option': get_option('rockchip'), 'build-hotdoc': true, 'match_gst_version': false}]
+  ['gst-rockchip', { 'option': get_option('rockchip'), 'build-hotdoc': true, 'match_gst_version': false}]
 ]
 
 if build_system == 'windows'
