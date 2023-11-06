@@ -1,6 +1,3 @@
-[submodule "subprojects/gst-integration-testsuites/medias"]
-	path = subprojects/gst-integration-testsuites/medias
-	url = https://gitlab.freedesktop.org/gstreamer/gst-integration-testsuites.git
 [submodule "subprojects/gst-rockchip"]
 	path = subprojects/gst-rockchip
 	url = https://github.com/Meonardo/gst-rockchip
