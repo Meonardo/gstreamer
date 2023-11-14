@@ -93,6 +93,7 @@ subprojects = [
   ['gst-plugins-ugly', { 'option': get_option('ugly'), 'build-hotdoc': true}],
   ['gst-libav', { 'option': get_option('libav'), 'build-hotdoc': true}],
   ['gst-rtsp-server', { 'option': get_option('rtsp_server'), 'build-hotdoc': true}],
+  ['gst-rockchip', { 'option': get_option('rockchip'), 'build-hotdoc': true}],
   ['gst-devtools', { 'option': get_option('devtools'), 'build-hotdoc': true, 'subproject_options': tools_option}],
   ['gst-integration-testsuites', { 'option': get_option('devtools') }],
   ['gst-editing-services', { 'option': get_option('ges'), 'build-hotdoc': true, 'subproject_options': tools_option}],
