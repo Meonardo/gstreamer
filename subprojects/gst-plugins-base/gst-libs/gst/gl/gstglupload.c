@@ -2232,22 +2232,22 @@ static const UploadMethod _nvmm_upload = {
 
 #endif /* HAVE_NVMM */
 
-static const UploadMethod *upload_methods[] = { &_gl_memory_upload,
+static const UploadMethod *upload_methods[] = {
+    &_gl_memory_upload,
 #if GST_GL_HAVE_DMABUF
-  &_direct_dma_buf_upload,
-  &_direct_dma_buf_external_upload,
-  &_dma_buf_upload,
+    &_direct_dma_buf_external_upload, 
+    &_direct_dma_buf_upload, 
+    &_dma_buf_upload,
 #endif
 #if GST_GL_HAVE_VIV_DIRECTVIV
-  &_directviv_upload,
+    &_directviv_upload,
 #endif
 #if defined(HAVE_NVMM)
-  &_nvmm_upload,
+    &_nvmm_upload,
 #endif /* HAVE_NVMM */
-  &_upload_meta_upload,
-  /* Raw data must always be last / least preferred */
-  &_raw_data_upload
-};
+    &_upload_meta_upload,
+    /* Raw data must always be last / least preferred */
+    &_raw_data_upload};
 
 static GMutex upload_global_lock;
 
