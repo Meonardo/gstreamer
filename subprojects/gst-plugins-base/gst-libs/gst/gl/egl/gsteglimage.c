@@ -831,8 +831,8 @@ gst_egl_image_check_dmabuf_direct (GstGLContext * context,
   gst_eglQueryDmaBufModifiersEXT =
       gst_gl_context_get_proc_address (context, "eglQueryDmaBufModifiersEXT");
 
-  if (!gst_eglQueryDmaBufFormatsEXT || !gst_eglQueryDmaBufModifiersEXT)
-    return FALSE;
+  if (!gst_eglQueryDmaBufFormatsEXT)
+    return TRUE;
 
   display_egl = gst_gl_display_egl_from_gl_display (context->display);
   if (!display_egl) {
@@ -869,8 +869,12 @@ gst_egl_image_check_dmabuf_direct (GstGLContext * context,
     return FALSE;
   }
 
-  ret = gst_eglQueryDmaBufModifiersEXT (egl_display, fourcc, 0, NULL, NULL,
-      &num_modifiers);
+  if (!gst_eglQueryDmaBufModifiersEXT) {
+    return TRUE;
+  }
+
+  ret = gst_eglQueryDmaBufModifiersEXT(egl_display, fourcc, 0, NULL, NULL,
+                                         &num_modifiers);
   if (!ret || num_modifiers == 0) {
     GST_DEBUG ("driver does not report modifiers for fourcc %"
         GST_FOURCC_FORMAT, GST_FOURCC_ARGS (fourcc));
